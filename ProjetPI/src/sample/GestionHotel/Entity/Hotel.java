@@ -11,7 +11,7 @@ private  String Path_video ;
 private String chambre ;
 private int ch_sing ;
 private int ch_doub ;
-private int ch_trip ;
+private int ch_trip  ;
 
 
     public Hotel(String id, String nom, int etoile, String lieu, String hebergement, String path_image, String path_video, String chambre, int ch_sing, int ch_doub, int ch_trip) {
