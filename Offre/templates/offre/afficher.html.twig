@@ -1,0 +1,74 @@
+{% extends 'base2.html.twig' %}
+ {% block body %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<div style="margin-left: auto;
+  margin-right: auto;padding: 15px">
+
+    <tr>
+        <h1>Liste des Offres</h1>
+         <form action="{{ path('searchoffre') }}" method="post">
+            <label >Recherche</label>
+            <input type="text" name="searchO" ><input type="submit" value="Recherche">
+
+        </form>
+
+    </tr>
+    <tr>
+        <table border="2" >
+            <tr>
+                <th>idoffre</th>
+                <th>idReservation</th>
+                <th>titre</th>
+                <th>dateValidite</th>
+                <th>tauxDeRemise</th>
+                <th>description</th>
+                <th>pathImage</th>
+                <th>pathVideo</th>
+                <th>prix</th>
+                <th>Delete</th>
+                <th>Update</th>
+            </tr>
+            <tr {% for o in liste %}>
+                <td>{{ o.idoffre }}</td>
+                <td>{{ o.idReservation}}</td>
+                <td>{{ o.titre }}</td>
+                <td>{{ o.dateValidite|date('d-m-Y') }}</td>
+                <td>{{ o.tauxDeRemise }}</td>
+                <td>{{ o.description}}</td>
+                <td>{{ o.pathImage }}</td>
+                <td>{{ o.pathVideo }}</td>
+                <td>{{ o.prix }}</td>
+                <td><a href=" {{ path('delete',{'id':o.idoffre}) }}">Delete</a></td>
+               <td><a href=" {{ path('updateOffre',{'id':o.idoffre}) }}">Update</a></td>
+
+
+            </tr {% endfor %}>
+
+
+        </table>
+
+
+
+
+    </tr>
+
+
+</div>
+
+
+
+
+
+</body>
+</html>
+ {% endblock %}
