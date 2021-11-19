@@ -1,0 +1,97 @@
+{% extends 'base1.html.twig' %}
+ {% block body %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<div style="margin: auto;
+  width: 65%;
+  border: 3px solid green;
+  padding: 5px;" class="block block-rounded">
+
+
+
+    <div class="blog-content">
+        <table>
+            <td>
+                <h1>Liste of Events</h1>
+                <form action="{{ path('searchevent') }}" method="post">
+                    <label >Search</label>
+                    <input type="text" name="search" ><input type="submit" value="Recherche">
+                </form>
+            </td>
+
+            {#<td>
+                <a href=" {{ path('triePrix') }}"> Trie Par Prix </a>
+            </td>#}
+
+
+        </table>
+
+
+
+        <div class="block block-rounded">
+            <div class="block-header">
+                <h3 class="block-title">Events</h3>
+                <div class="block-options">
+                    <div class="block-options-item">
+                        <code>.table-sm</code>
+                    </div>
+                </div>
+            </div>
+            <div class="block-content">
+                <table class="table table-sm table-vcenter">
+                    <thead>
+                    <tr>
+                        <th class="text-center" style="width: 50px;">Idevent</th>
+                        <th>Name</th>
+                        <th class="d-none d-sm-table-cell" style="width: 15%;">Period</th>
+                        <th class="text-center" style="width: 100px;">Location</th>
+                        <th class="text-center" style="width: 100px;">Date</th>
+                        <th class="text-center" style="width: 100px;">Available</th>
+                        <th class="text-center" style="width: 100px;">Price</th>
+                        <th>Delete</th>
+                        <th>Update</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr {% for e in events %}>
+
+
+                        <td class="d-none d-sm-table-cell">
+                            <span class="badge badge-info">{{ e.idevent }}</span>
+                        </td>
+                        <td class="font-w600 font-size-sm">
+                            <a >{{ e.name }}</a>
+                        </td>
+                        <td class="font-w600 font-size-sm">
+                            <a >{{ e.period }}</a>
+                        </td>
+                        <td class="font-w600 font-size-sm">
+                            <a >{{ e.location }}</a>
+                        </td>
+                        <td class="font-w600 font-size-sm">
+                            <a >{{ e.date|date('d-m-Y') }}</a>
+                        </td>
+                        <td class="d-none d-sm-table-cell">
+                            <span class="badge badge-success">{{ e.available }}</span>
+                        </td>
+                        <td class="font-w600 font-size-sm">
+                            <a >{{ e.price }} </a>
+                        </td>
+                        <td><a href=" {{ path('deleteevent',{'id':e.idevent}) }}">Delete</a></td>
+                        <td><a href=" {{ path('updateevent',{'id':e.idevent}) }}">Update </a></td>
+
+                    </tr {% endfor %}>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+ {% endblock %}

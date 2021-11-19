@@ -1,0 +1,64 @@
+{% extends 'base2.html.twig' %}
+    {% block body %}
+
+        <div style="margin: auto;width: 65%;
+            border: 3px Solid  pink;
+            padding: 5px;">
+
+            <h1>Update Offre</h1>
+            {{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+            <div style="padding-left: 50px">
+                <table>
+                    <tr>
+                        <td>{{ form_errors(form.idoffre) }}</td>
+                        <td>{{ form_label(form.idoffre,"Id De l'offre") }}</td>
+                        <td>{{ form_widget(form.idoffre) }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form_errors(form.idReservation) }}</td>
+                        <td>{{ form_label(form.idReservation,"Id de Réservation ") }}</td>
+                        <td>{{ form_widget(form.idReservation) }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form_errors(form.titre) }}</td>
+                        <td>{{ form_label(form.titre," Titre De l'offre") }}</td>
+                        <td>{{ form_widget(form.titre) }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form_errors(form.dateValidite) }}</td>
+                        <td>{{ form_label(form.dateValidite,"Date de validité") }}</td>
+                        <td>{{ form_widget(form.dateValidite) }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form_errors(form.tauxDeRemise) }}</td>
+                        <td>{{ form_label(form.tauxDeRemise,"Taux de remise") }}</td>
+                        <td>{{ form_widget(form.tauxDeRemise) }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form_errors(form.description) }}</td>
+                        <td>{{ form_label(form.description,"Description") }}</td>
+                        <td>{{ form_widget(form.description) }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>{{ form_errors(form.pathImage) }}</td>
+                        <td>{{ form_label(form.pathImage,"Path de l'image") }}</td>
+                        <td>{{ form_widget(form.pathImage) }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form_errors(form.pathVideo) }}</td>
+                        <td>{{ form_label(form.pathVideo,"Path de video") }}</td>
+                        <td>{{ form_widget(form.pathVideo) }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form_errors(form.prix) }}</td>
+                        <td>{{ form_label(form.prix,"Prix") }}</td>
+                        <td>{{ form_widget(form.prix) }}</td>
+                    </tr>
+                </table>
+            </div>
+            {{ form_end(form) }}
+        </div>
+
+
+    {% endblock %}
