@@ -1,0 +1,48 @@
+{% extends 'base2.html.twig' %}
+{% block html %}
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body  >
+    {% block body %}
+
+        <h2 style="color:#AA3333; text-decoration: underline"><marquee behavior="" direction=""> Catalogue des Maisons </marquee> </h2>
+        <form method="post" action="{{ path('searchMaisonFront') }}">
+            <label style="font-weight: bold" >Search</label>
+            <input type="text" name="searchMaison"><input type="submit" value="Recherche" class="btn btn-success">
+        </form>
+
+        <table border="2" class="table table-striped custom-table">
+            <tr {%  for c in maison %}>
+                <td>ID</td>
+                <td>Lieu : {{ c.lieu }}</td>
+                <td>Hebergement : {{ c.hebergement }}</td>
+                <td >Prix : {{ c.prix }} <form method="post" action="{{ path('trie') }}"  >
+                        <BUTTON   class="  fa fa-chevron-circle-down" aria-hidden="true"  type="submit" ></BUTTON>
+                    </form>
+                    <form method="post" action="{{ path('tri') }}" >
+                        <BUTTON   class="  fa fa-chevron-circle-up" aria-hidden="true"  type="submit" ></BUTTON>
+                    </form>
+
+                </td>
+                <th>Nom : {{ c.nom }}</th>
+
+            </tr>
+
+
+            </tr{% endfor %} >
+        </table>
+
+        <br>
+
+
+    {% endblock %}
+    </body>
+    </html>
+{% endblock %}

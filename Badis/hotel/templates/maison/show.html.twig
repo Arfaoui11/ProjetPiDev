@@ -1,0 +1,59 @@
+{% extends 'base1.html.twig' %}
+{% block html %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body  >
+{% block body %}
+
+<h2 style="color:#AA3333; text-decoration: underline">Liste des Maison </h2>
+<form method="post" action="{{ path('search') }}">
+    <label style="font-weight: bold" >Search</label>
+    <input type="text" name="search"><input type="submit" value="Recherche" class="btn btn-success">
+</form>
+
+<table border="2" class="table table-striped custom-table">
+    <tr>
+        <th>ID</th>
+        <th>Lieu</th>
+        <th>Hebergement</th>
+        <th >Prix  <form method="post" action="{{ path('trie') }}"  >
+                <BUTTON   class="  fa fa-chevron-circle-down" aria-hidden="true"  type="submit" ></BUTTON>
+            </form>
+            <form method="post" action="{{ path('tri') }}" >
+                <BUTTON   class="  fa fa-chevron-circle-up" aria-hidden="true"  type="submit" ></BUTTON>
+            </form>
+
+        </th>
+        <th>Nom</th>
+        <td>Update</td>
+        <td>Delete</td>
+    </tr>
+    <tr {%  for c in maison %}>
+        <td>{{c.id}}</td>
+        <td>{{ c.lieu }}</td>
+        <td>{{ c.hebergement }}</td>
+        <td>{{ c.prix }}</td>
+        <td>{{ c.nom }}</td>
+        <td><a href=" {{ path('update',{'id':c.id}) }}">Update</a></td>
+        <td><a href=" {{ path('supp',{'id':c.id}) }}">Delete</a></td>
+
+    </tr{% endfor %} >
+</table>
+
+<br>
+<form method="post" action="{{ path('ajouter') }}" style="padding-left: 80px">
+    <input class="btn btn-success"
+           type="submit" value="Ajouter Maison d'hote">
+</form>
+
+{% endblock %}
+</body>
+</html>
+{% endblock %}

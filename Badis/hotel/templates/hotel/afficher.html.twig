@@ -1,0 +1,54 @@
+{% extends 'base1.html.twig' %}
+{% block html %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+{% block body %}
+<h2 style="color:#AA3333;text-decoration: underline">Liste des hotels </h2>
+
+<form method="post" action="{{ path('recherche') }}">
+    <label style="font-weight: bold">Search</label>
+    <input type="text" name="search"><input type="submit" value="Recherche" class="btn btn-success">
+</form>
+<table border="" class="table table-striped custom-table">
+    <tr>
+        <th>ID</th>
+        <th>
+            Siége
+        </th>
+        <th>Chambre</th>
+        <th>Etoile</th>
+        <th>Hebergement</th>
+        <th>Nom</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    <tr {%  for c in hotel %}>
+        <td>{{c.id}}</td>
+        <td>{{ c.lieu }}</td>
+        <td>{{ c.chambre }}</td>
+        <td>{{ c.etoile }}</td>
+        <td>{{ c.hebergement }}</td>
+        <td>{{ c.nom }}</td>
+        <td><a href=" {{ path('mise',{'id':c.id}) }}">Update</a></td>
+        <td><a href=" {{ path('del',{'id':c.id}) }}">Delete</a></td>
+
+
+    </tr{% endfor %} >
+</table>
+<form method="post" action="{{ path('Add') }}" style="padding-left: 80px">
+    <input type="submit" value="Ajouter Hotel" class="btn btn-success">
+</form>
+
+{% endblock %}
+</body>
+</html>
+
+{% endblock %}
