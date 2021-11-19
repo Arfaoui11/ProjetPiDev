@@ -1,0 +1,116 @@
+{% extends 'basef.html.twig' %}
+{%block body%}
+
+<link rel="apple-touch-icon" sizes="57x57" href="http://ashik.templatepath.net/conexi-preview-files/images/favicon//apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="http://ashik.templatepath.net/conexi-preview-files/images/favicon//apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="http://ashik.templatepath.net/conexi-preview-files/images/favicon//apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="http://ashik.templatepath.net/conexi-preview-files/images/favicon//apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="http://ashik.templatepath.net/conexi-preview-files/images/favicon//apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="http://ashik.templatepath.net/conexi-preview-files/images/favicon//apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="http://ashik.templatepath.net/conexi-preview-files/images/favicon//apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="http://ashik.templatepath.net/conexi-preview-files/images/favicon//apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="http://ashik.templatepath.net/conexi-preview-files/images/favicon//apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="http://ashik.templatepath.net/conexi-preview-files/images/favicon//android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://ashik.templatepath.net/conexi-preview-files/images/favicon//favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="http://ashik.templatepath.net/conexi-preview-files/images/favicon//favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://ashik.templatepath.net/conexi-preview-files/images/favicon//favicon-16x16.png">
+<link rel="manifest" href="http://ashik.templatepath.net/conexi-preview-files/images/favicon/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="{{ asset ("test/style.css") }}">
+<link rel="stylesheet" href="{{ asset ("test/.responsive.css") }}">
+
+
+
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane show  animated fadeInUp" id="hybrid">
+        <div class="row">
+            {%for tr in transport%}
+                {% if (tr.type=='taxi') %}
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="single-taxi-one">
+                        <div class="inner-content">
+                            <img src="{{ asset ("taxi.png") }}" >
+                            <div class="icon-block">
+                                <i class="conexi-icon-bmw"></i>
+                            </div><!-- /.icon-block -->
+                            <h3>{{tr.id}}</h3>
+                            <ul class="feature-list">
+                                <li>
+                                    <span class="name-line">Type:</span>
+                                    <span class="price-line">{{tr.type}}</span>
+                                </li>
+                                <li>
+                                    <span class="name-line">Prix:</span>
+                                    <span class="price-line">{{tr.prix}}</span>
+                                </li>
+                                <li>
+                                    <span class="name-line">Disponibilite:</span>
+                                    <span class="price-line">{{tr.dispo}}</span>
+                                </li>
+                            </ul><!-- /.feature-list -->
+                            <a href="http://ashik.templatepath.net/conexi-preview-files/single-taxi.html" class="book-taxi-btn">Reserver Taxi</a>
+                        </div><!-- /.inner-content -->
+                    </div><!-- /.single-taxi-one -->
+                </div><!-- /.col-lg-4 -->
+                {%  elseif (tr.type =='bus') %}
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="single-taxi-one">
+                            <div class="inner-content">
+                                <img src="{{ asset ("buss.png") }}">
+                                <div class="icon-block">
+                                    <i class="conexi-icon-bmw"></i>
+                                </div><!-- /.icon-block -->
+                                <h3>{{tr.id}}</h3>
+                                <ul class="feature-list">
+                                    <li>
+                                        <span class="name-line">Type:</span>
+                                        <span class="price-line">{{tr.type}}</span>
+                                    </li>
+                                    <li>
+                                        <span class="name-line">Prix:</span>
+                                        <span class="price-line">{{tr.prix}}</span>
+                                    </li>
+                                    <li>
+                                        <span class="name-line">Disponibilite:</span>
+                                        <span class="price-line">{{tr.dispo}}</span>
+                                    </li>
+                                </ul><!-- /.feature-list -->
+                                <a href="http://ashik.templatepath.net/conexi-preview-files/single-taxi.html" class="book-taxi-btn">Reserver Bus</a>
+                            </div><!-- /.inner-content -->
+                        </div><!-- /.single-taxi-one -->
+                    </div><!-- /.col-lg-4 -->
+                    {% else  %}
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="single-taxi-one">
+                                <div class="inner-content">
+                                    <img src="{{ asset ("car.png") }}">
+                                    <div class="icon-block">
+                                        <i class="conexi-icon-bmw"></i>
+                                    </div><!-- /.icon-block -->
+                                    <h3>{{tr.id}}</h3>
+                                    <ul class="feature-list">
+                                        <li>
+                                            <span class="name-line">Type:</span>
+                                            <span class="price-line">{{tr.type}}</span>
+                                        </li>
+                                        <li>
+                                            <span class="name-line">Prix:</span>
+                                            <span class="price-line">{{tr.prix}}</span>
+                                        </li>
+                                        <li>
+                                            <span class="name-line">Disponibilite:</span>
+                                            <span class="price-line">{{tr.dispo}}</span>
+                                        </li>
+                                    </ul><!-- /.feature-list -->
+                                    <a href="http://ashik.templatepath.net/conexi-preview-files/single-taxi.html" class="book-taxi-btn">Reserver Car</a>
+                                </div><!-- /.inner-content -->
+                            </div><!-- /.single-taxi-one -->
+                        </div><!-- /.col-lg-4 -->
+                {% endif %}
+            {%endfor%}
+        </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+</div>
+{% endblock %}

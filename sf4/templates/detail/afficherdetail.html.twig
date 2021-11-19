@@ -1,0 +1,66 @@
+{% extends 'base1.html.twig' %}
+{% block html %}
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    {% block body %}
+        <body>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+        <table border=""  class="table table-striped custom-table">
+            <tr>
+                <th>ID Detail</th>
+
+                <th>Marque</th>
+                <th>Etat</th>
+                <th>Prix</th>
+                <th>Transport ID</th>
+
+                <th>Date de Creation</th>
+                <th>Date de Modification</th>
+
+
+
+
+
+            </tr>
+            <tr {%  for dt in detail %}>
+                <td>{{ dt.id }}</td>
+
+                <td>{{dt.marque}}</td>
+                <td>{{ dt.etat }}</td>
+                <td>{{ dt.prix }}</td>
+                <td>{{ dt.transport.id }}</td>
+
+                <td>{{ dt.dateCreation|date('Y-m-d H:i:s') }}</td>
+                <td>{{ dt.dateModification|date('Y-m-d H:i:s') }}</td>
+
+                <td>
+                    <a href=" {{ path('updated',{'id':dt.id}) }}" class="edit" ><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+
+
+                    <a href=" {{ path('dt',{'id':dt.id}) }}" class="delete" ><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                </td>
+
+
+
+
+
+
+            </tr{% endfor %} >
+        </table>
+        <form method="post" action="{{ path('ajoutdetailt') }}">
+            <input class="btn btn-success" type="submit" value="Ajouter">
+        </form>
+
+        </body>
+
+    {% endblock %}
+    </html>
+{% endblock %}

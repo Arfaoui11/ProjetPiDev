@@ -1,0 +1,10 @@
+{% extends 'base1.html.twig' %}
+{% block body %}
+    <h1> Ajout Détail</h1>
+    {{ form_start(form1, {attr: {'novalidate': 'novalidate'}}) }}
+
+    {{ form(form1) }}
+    <form method="post" action="{{ path('afficherd') }}">
+        <input class="btn btn-danger" type="submit" value="Annuler">
+    </form>
+{% endblock %}

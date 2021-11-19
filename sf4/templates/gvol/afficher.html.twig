@@ -1,0 +1,55 @@
+{% extends 'base1.html.twig' %}
+{% block html %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+{% block body %}
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<form method="post" action="{{ path('recherchev') }}">
+    <label>Search</label>
+    <input type="text" name="search"><input type="submit" value="Recherche">
+</form>
+<table border=""  class="table table-striped custom-table">
+    <tr>
+        <th>numv</th>
+        <th>nomv</th>
+        <th>dated</th>
+        <th>datea</th>
+        <th>depart</th>
+        <th>arriver</th>
+        <th>chauffeur</th>
+
+    </tr>
+    <tr {%  for c in vol %}>
+        <td>{{c.numv}}</td>
+        <td>{{ c.nomv }}</td>
+        <td>{{ c.dated|date('Y-m-d') }}</td>
+        <td>{{ c.datea|date('Y-m-d') }}</td>
+        <td>{{ c.depart }}</td>
+        <td>{{ c.arriver }}</td>
+        <td>{{ c.chauffeur }}</td>
+
+        <td>
+            <a href=" {{ path('updatev',{'id':c.numv}) }}" class="edit" ><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+
+            <a href=" {{ path('d1',{'id':c.numv}) }}" class="delete" ><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+        </td>
+
+    </tr{% endfor %} >
+</table>
+    <form method="post" action="{{ path('ajoutvol') }}">
+    <input class="btn btn-success" type="submit" value="Ajouter">
+    </form>
+
+
+</body>
+{% endblock %}
+</html>
+{% endblock %}
