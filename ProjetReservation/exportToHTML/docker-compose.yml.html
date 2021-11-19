@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>docker-compose.yml</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #e0957b;}
+.s1 { color: #c9c9d1;}
+.s2 { color: #c9c9d1;}
+.s3 { color: #62a362;}
+.s4 { color: #5a6e5a; font-style: italic;}
+.s5 { color: #c9c9d1;}
+</style>
+</head>
+<body bgcolor="#1d1d26">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+docker-compose.yml</font>
+</center></td></tr></table>
+<pre><span class="s0">version</span><span class="s1">: </span><span class="s3">'3'</span>
+
+<span class="s0">services</span><span class="s1">:</span>
+<span class="s4">###&gt; doctrine/doctrine-bundle ###</span>
+  <span class="s0">database</span><span class="s1">:</span>
+    <span class="s0">image</span><span class="s1">: </span><span class="s5">postgres:${POSTGRES_VERSION:-13}-alpine</span>
+    <span class="s0">environment</span><span class="s1">:</span>
+      <span class="s0">POSTGRES_DB</span><span class="s1">: </span><span class="s5">${POSTGRES_DB:-app}</span>
+      <span class="s4"># You should definitely change the password in production</span>
+      <span class="s0">POSTGRES_PASSWORD</span><span class="s1">: </span><span class="s5">${POSTGRES_PASSWORD:-ChangeMe}</span>
+      <span class="s0">POSTGRES_USER</span><span class="s1">: </span><span class="s5">${POSTGRES_USER:-symfony}</span>
+    <span class="s0">volumes</span><span class="s1">:</span>
+      <span class="s1">- </span><span class="s5">db-data:/var/lib/postgresql/data:rw</span>
+      <span class="s4"># You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!</span>
+      <span class="s4"># - ./docker/db/data:/var/lib/postgresql/data:rw</span>
+<span class="s4">###&lt; doctrine/doctrine-bundle ###</span>
+
+<span class="s0">volumes</span><span class="s1">:</span>
+<span class="s4">###&gt; doctrine/doctrine-bundle ###</span>
+  <span class="s0">db-data</span><span class="s1">:</span>
+<span class="s4">###&lt; doctrine/doctrine-bundle ###</span>
+</pre>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>docker-compose.override.yml</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #e0957b;}
+.s1 { color: #c9c9d1;}
+.s2 { color: #c9c9d1;}
+.s3 { color: #62a362;}
+.s4 { color: #5a6e5a; font-style: italic;}
+.s5 { color: #c9c9d1;}
+</style>
+</head>
+<body bgcolor="#1d1d26">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+docker-compose.override.yml</font>
+</center></td></tr></table>
+<pre><span class="s0">version</span><span class="s1">: </span><span class="s3">'3'</span>
+
+<span class="s0">services</span><span class="s1">:</span>
+<span class="s4">###&gt; symfony/mailer ###</span>
+  <span class="s0">mailer</span><span class="s1">:</span>
+    <span class="s0">image</span><span class="s1">: </span><span class="s5">schickling/mailcatcher</span>
+    <span class="s0">ports</span><span class="s1">: [</span><span class="s5">1025</span><span class="s1">, </span><span class="s5">1080</span><span class="s1">]</span>
+<span class="s4">###&lt; symfony/mailer ###</span>
+
+<span class="s4">###&gt; doctrine/doctrine-bundle ###</span>
+  <span class="s0">database</span><span class="s1">:</span>
+    <span class="s0">ports</span><span class="s1">:</span>
+      <span class="s1">- </span><span class="s3">&quot;5432&quot;</span>
+<span class="s4">###&lt; doctrine/doctrine-bundle ###</span>
+</pre>
+</body>
+</html>
