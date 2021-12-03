@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Gvol;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use CMEN\GoogleChartsBundle\GoogleCharts\Charts\BarChart;
 
 /**
  * @method Gvol|null find($id, $lockMode = null, $lockVersion = null)
@@ -48,5 +49,14 @@ class VolRepository extends ServiceEntityRepository
     }
     */
 
+    public function getART()
+    {
 
+        $qb = $this->createQueryBuilder('v')
+            ->select('COUNT(v.nomv) AS cvol, SUBSTRING(v.nomv, 1, 100000) AS volt')
+            ->groupBy('volt');
+        return $qb->getQuery()
+            ->getResult();
+
+    }
 }

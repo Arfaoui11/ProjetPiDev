@@ -6252,7 +6252,7 @@ var FullCalendar = (function (exports) {
         // DOES NOT CONSIDER validRange!
         // If the initial value of `date` is not a hidden day, don't do anything.
         // Pass `isExclusive` as `true` if you are dealing with an end date.
-        // `inc` defaults to `1` (increment one day forward each time)
+        // `map` defaults to `1` (increment one day forward each time)
         DateProfileGenerator.prototype.skipHiddenDays = function (date, inc, isExclusive) {
             if (inc === void 0) { inc = 1; }
             if (isExclusive === void 0) { isExclusive = false; }

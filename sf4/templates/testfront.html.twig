@@ -1,6 +1,6 @@
 {% extends 'basef.html.twig' %}
-{%block body%}
 
+{% block HTML %}
 <link rel="apple-touch-icon" sizes="57x57" href="http://ashik.templatepath.net/conexi-preview-files/images/favicon//apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="http://ashik.templatepath.net/conexi-preview-files/images/favicon//apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="http://ashik.templatepath.net/conexi-preview-files/images/favicon//apple-icon-72x72.png">
@@ -20,9 +20,9 @@
 <meta name="theme-color" content="#ffffff">
 <link rel="stylesheet" href="{{ asset ("test/style.css") }}">
 <link rel="stylesheet" href="{{ asset ("test/.responsive.css") }}">
+{% endblock %}
 
-
-
+{%block body%}
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane show  animated fadeInUp" id="hybrid">
         <div class="row">

@@ -1,59 +1,61 @@
 {% extends 'base1.html.twig' %}
 {% block html %}
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> Document
-        <style>
-            table.table td a.edit {
-                color: #FFC107;
-            }
-            table.table td a.delete {
-                color: #F44336;
-            }
-        </style>
-    </title>
-</head>
 
-<body>
+
 {% block body %}
+
+
+    {% for message in app.flashes('info') %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <h2>Liste des transports</h2>
 <form method="post" action="{{ path('recherche') }}">
     <label>Search</label>
     <input type="text" name="search"><input type="submit" value="Recherche">
 </form>
-<table border=""     class="table table-striped custom-table"
->
+
+    <div class="block-content block-content-full">
+        <!-- DataTables init on table by adding .js-dataTable-full class, functionality is initialized in js/pages/be_tables_datatables.min.js which was auto compiled from _es6/pages/be_tables_datatables.js -->
+        <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
+            <thead>
+            <tr>
+                <th class="text-center" style="width: 80px;">ID</th>
+                <th class="d-none d-sm-table-cell" style="width: 15%;">Type</th>
+                <th class="d-none d-sm-table-cell" style="width: 20%;" >Disponibilité</th>
+                <th class="d-none d-sm-table-cell" style="width: 15%;">Chauffeur</th>
+                <th class="d-none d-sm-table-cell" style="width: 15%;">Prix</th>
+                <th class="d-none d-sm-table-cell" style="width: 15%;">Modifier </th>
+                <th class="d-none d-sm-table-cell" style="width: 15%;">Supprimer</th>
+            </tr>
+            </thead>
+            <tbody{%  for t in transport %}>
+            <tr>
+                <td class="text-center font-size-sm">{{t.id}}</td>
+                <td class="d-none d-sm-table-cell">
+                    <p class="badge badge-success">{{t.type}}</p>
+                </td>
+                <td class="font-w600 font-size-sm">
+                    <em class="text-muted">{{ t.dispo}}</em>
+                </td>
+                <td class="d-none d-sm-table-cell font-size-sm" >
+                    <em class="text-muted">{{ t.driver}}</em>
+                </td>
+                <td class="d-none d-sm-table-cell font-size-sm" >
+                    <em class="text-muted">{{ t.prix}}</em>
+                </td>
 
 
-    <tr>
-        <th>matricule</th>
-        <th>type</th>
-        <th>dispo</th>
-        <th>driver</th>
-        <th>prix</th>
+                <td><a class="badge badge-danger" href=" {{ path('update',{'id':t.id}) }}" class="nav-link">Update</a></td>
+                <td><a class="badge badge-info" href=" {{ path('d',{'id':t.id}) }}" class="nav-link">Delete</a></td>
+
+            </tr>
+            </tbody {% endfor %}>
+        </table>
+    </div>
 
 
 
-    </tr>
-    <tr {%  for t in transport %}>
-        <td>{{t.id}}</td>
-        <td>{{ t.type }}</td>
-        <td>{{ t.dispo }}</td>
-        <td>{{ t.driver }}</td>
-        <td>{{ t.prix }}</td>
-        <td>
-            <a href=" {{ path('update',{'id':t.id}) }}" class="edit" ><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-            <a href=" {{ path('d',{'id':t.id}) }}" class="delete" ><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-        </td>
-
-    </tr{% endfor %} >
-</table>
 <form method="post" action="{{ path('tri') }}">
     <input class="btn btn-success" type="submit" value="Tri">
 </form>
@@ -61,7 +63,8 @@
         <input class="btn btn-success" type="submit" value="Ajouter">
     </form>
 
+
+
 {% endblock %}
-</body>
-</html>
+
 {% endblock %}

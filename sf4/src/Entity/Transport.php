@@ -27,6 +27,12 @@ class Transport
      *
      * @ORM\Column(name="type", type="string", length=255, nullable=false)
      * @Assert\NotBlank(message="type is required")
+     * *@Assert\Length(
+     *      min = 2,
+     *      max = 5,
+     *      minMessage = "Your id must be at least {{ limit }} characters long",
+     *      maxMessage = "Your id cannot be longer than {{ limit }} characters"
+     * )
 
      */
     private $type;
@@ -36,6 +42,12 @@ class Transport
      *
      * @ORM\Column(name="dispo", type="string", length=255, nullable=false)
      *@Assert\NotBlank(message="disponibility is required")
+     * *@Assert\Length(
+     *      min = 2,
+     *      max = 5,
+     *      minMessage = "Your id must be at least {{ limit }} characters long",
+     *      maxMessage = "Your id cannot be longer than {{ limit }} characters"
+     * )
      */
     private $dispo;
 
@@ -43,6 +55,12 @@ class Transport
      * @var string
      *
      * @ORM\Column(name="driver", type="string", length=255, nullable=false)
+     * @Assert\Length(
+     *      min = 4,
+     *      max = 20,
+     *      minMessage = "The full name must be at least {{ limit }} characters long",
+     *      maxMessage = "The full name cannot be longer than {{ limit }} characters",
+     *      allowEmptyString = false)
      */
     private $driver;
 
@@ -50,8 +68,12 @@ class Transport
      * @var string
      *
      * @ORM\Column(name="prix", type="string", length=255, nullable=false)
-     * @Assert\NotBlank(message="price is required")
-     */
+     *@Assert\Length(
+     *      min = 2,
+     *      max = 5,
+     *      minMessage = "Your id must be at least {{ limit }} characters long",
+     *      maxMessage = "Your id cannot be longer than {{ limit }} characters"
+     * )     */
     private $prix;
     /**
      * @ORM\OneToOne(targetEntity=DetailT::class, cascade={"persist", "remove"},mappedBy="transport")

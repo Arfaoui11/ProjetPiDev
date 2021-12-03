@@ -5,6 +5,8 @@ namespace App\Repository;
 use App\Entity\Transport;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use CMEN\GoogleChartsBundle\GoogleCharts\Charts\BarChart;
+
 
 /**
  * @method Transport|null find($id, $lockMode = null, $lockVersion = null)
@@ -53,4 +55,15 @@ class TransportRepository extends ServiceEntityRepository
         $query = $em -> createQuery('select m from App\Entity\Transport m order by m.id DESC');
         return $query->getResult();
     }
+    public function countEtat()
+    {
+
+        $qb = $this->createQueryBuilder('k')
+            ->select('COUNT(k.id) AS tran, SUBSTRING(k.id, 1, 10) AS e')
+            ->groupBy('e');
+        return $qb->getQuery()
+            ->getResult();
+
+    }
+
 }

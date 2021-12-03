@@ -1,5 +1,8 @@
-<!doctype html>
+{% extends 'base1.html.twig' %}
 
+
+
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -21,16 +24,41 @@
 
     <!-- Icons -->
     <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
-    <link rel="shortcut icon" href="assets/media/favicons/favicon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/media/favicons/favicon-192x192.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/media/favicons/apple-touch-icon-180x180.png">
+    <link rel="shortcut icon" href="{{ asset('assets/media/favicons/favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/media/favicons/favicon-192x192.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/media/favicons/apple-touch-icon-180x180.png') }}">
     <!-- END Icons -->
 
     <!-- Stylesheets -->
+    <!-- Page JS Plugins CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/js/plugins/datatables/dataTables.bootstrap4.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/js/plugins/datatables/buttons-bs4/buttons.bootstrap4.min.css') }}">
+    <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/oneui.min.css') }}">
+
+    <!-- Fonts and OneUI framework -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- Fonts and OneUI framework -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" id="css-main" href={{ asset("assets/css/oneui.min.css") }}>
     <link rel="stylesheet" href="{{ asset('bundles/mercuryseriesflashy/css/flashy.css') }}">
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet'>
+    <link rel="stylesheet" href={{ asset('assets/js/plugins/datatables/dataTables.bootstrap4.css') }}>
+    <link rel="stylesheet" href={{ asset('assets/js/plugins/datatables/buttons-bs4/buttons.bootstrap4.min.css') }}>
+
 
     <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
     <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/amethyst.min.css"> -->
@@ -83,13 +111,13 @@ MAIN CONTENT LAYOUT
         <div class="content-header border-bottom">
             <!-- User Avatar -->
             <a class="img-link mr-1" href="javascript:void(0)">
-                <img class="img-avatar img-avatar32" src="assets/media/avatars/avatar10.jpg" alt="">
+                <img class="img-avatar img-avatar32" src="{{ asset('assets/media/avatars/avatar10.jpg') }}" alt="">
             </a>
             <!-- END User Avatar -->
 
             <!-- User Info -->
             <div class="ml-2">
-                <a class="text-dark font-w600 font-size-sm" href="javascript:void(0)">Nourhene Maaouia</a>
+                <a class="text-dark font-w600 font-size-sm" href="javascript:void(0)">Aero Space</a>
             </div>
             <!-- END User Info -->
 
@@ -196,7 +224,7 @@ MAIN CONTENT LAYOUT
                                     <li>
                                         <a class="media py-2" href="javascript:void(0)">
                                             <div class="mr-3 ml-2 overlay-container overlay-bottom">
-                                                <img class="img-avatar img-avatar48" src="assets/media/avatars/avatar4.jpg" alt="">
+                                                <img class="img-avatar img-avatar48" src="{{ asset('assets/media/avatars/avatar16.jpg') }}" alt="">
                                                 <span class="overlay-item item item-tiny item-circle border border-2x border-white bg-success"></span>
                                             </div>
                                             <div class="media-body">
@@ -208,11 +236,11 @@ MAIN CONTENT LAYOUT
                                     <li>
                                         <a class="media py-2" href="javascript:void(0)">
                                             <div class="mr-3 ml-2 overlay-container overlay-bottom">
-                                                <img class="img-avatar img-avatar48" src="assets/media/avatars/avatar16.jpg" alt="">
+                                                <img class="img-avatar img-avatar48" src="{{ asset('assets/media/avatars/avatar16.jpg') }}" alt="">
                                                 <span class="overlay-item item item-tiny item-circle border border-2x border-white bg-success"></span>
                                             </div>
                                             <div class="media-body">
-                                                <div class="font-w600">David Fuller</div>
+                                                <div class="font-w600">Aero Space</div>
                                                 <div class="font-size-sm text-muted">Web Developer</div>
                                             </div>
                                         </a>
@@ -220,7 +248,7 @@ MAIN CONTENT LAYOUT
                                     <li>
                                         <a class="media py-2" href="javascript:void(0)">
                                             <div class="mr-3 ml-2 overlay-container overlay-bottom">
-                                                <img class="img-avatar img-avatar48" src="assets/media/avatars/avatar4.jpg" alt="">
+                                                <img class="img-avatar img-avatar48" src="{{ asset('assets/media/avatars/avatar4.jpg') }}" alt="">
                                                 <span class="overlay-item item item-tiny item-circle border border-2x border-white bg-success"></span>
                                             </div>
                                             <div class="media-body">
@@ -232,7 +260,7 @@ MAIN CONTENT LAYOUT
                                     <li>
                                         <a class="media py-2" href="javascript:void(0)">
                                             <div class="mr-3 ml-2 overlay-container overlay-bottom">
-                                                <img class="img-avatar img-avatar48" src="assets/media/avatars/avatar8.jpg" alt="">
+                                                <img class="img-avatar img-avatar48" src="{{ asset('assets/media/avatars/avatar8.jpg') }}" alt="">
                                                 <span class="overlay-item item item-tiny item-circle border border-2x border-white bg-warning"></span>
                                             </div>
                                             <div class="media-body">
@@ -244,11 +272,11 @@ MAIN CONTENT LAYOUT
                                     <li>
                                         <a class="media py-2" href="javascript:void(0)">
                                             <div class="mr-3 ml-2 overlay-container overlay-bottom">
-                                                <img class="img-avatar img-avatar48" src="assets/media/avatars/avatar14.jpg" alt="">
+                                                <img class="img-avatar img-avatar48" src="{{ asset('assets/media/avatars/avatar14.jpg') }}" alt="">
                                                 <span class="overlay-item item item-tiny item-circle border border-2x border-white bg-warning"></span>
                                             </div>
                                             <div class="media-body">
-                                                <div class="font-w600">Nourhene Maaouia</div>
+                                                <div class="font-w600">David flutter</div>
                                                 <div class="font-size-sm text-muted">Graphic Designer</div>
                                             </div>
                                         </a>
@@ -547,28 +575,31 @@ MAIN CONTENT LAYOUT
                         <!-- Layout API, functionality initialized in Template._uiHandleTheme() -->
                         <a class="dropdown-item d-flex align-items-center justify-content-between font-w500" data-toggle="theme" data-theme="default" href="#">
                             <span>Default</span>
+
+
                             <i class="fa fa-circle text-default"></i>
                         </a>
                         <a class="dropdown-item d-flex align-items-center justify-content-between font-w500" data-toggle="theme" data-theme={{ asset("assets/css/themes/amethyst.min.css") }} href="#">
                             <span>Amethyst</span>
                             <i class="fa fa-circle text-amethyst"></i>
                         </a>
-                        <a class="dropdown-item d-flex align-items-center justify-content-between font-w500" data-toggle="theme" data-theme={{ asset("assets/css/themes/city.min.css") }} href="#">
+                        <a class="dropdown-item d-flex align-items-center justify-content-between font-w500" data-toggle="theme" data-theme={{ asset("assets/css/themes/city.min.css")}} href="#">
                             <span>City</span>
                             <i class="fa fa-circle text-city"></i>
                         </a>
-                        <a class="dropdown-item d-flex align-items-center justify-content-between font-w500" data-toggle="theme" data-theme={{ asset("assets/css/themes/flat.min.css") }} href="#">
+                        <a class="dropdown-item d-flex align-items-center justify-content-between font-w500" data-toggle="theme" data-theme={{ asset("assets/css/themes/flat.min.css")}} href="#">
                             <span>Flat</span>
                             <i class="fa fa-circle text-flat"></i>
                         </a>
-                        <a class="dropdown-item d-flex align-items-center justify-content-between font-w500" data-toggle="theme" data-theme={{ asset("assets/css/themes/modern.min.css") }} href="#">
+                        <a class="dropdown-item d-flex align-items-center justify-content-between font-w500" data-toggle="theme" data-theme={{ asset("assets/css/themes/modern.min.css")}} href="#">
                             <span>Modern</span>
                             <i class="fa fa-circle text-modern"></i>
                         </a>
-                        <a class="dropdown-item d-flex align-items-center justify-content-between font-w500" data-toggle="theme" data-theme={{ asset("assets/css/themes/smooth.min.css") }} href="#">
+                        <a class="dropdown-item d-flex align-items-center justify-content-between font-w500" data-toggle="theme" data-theme={{ asset("assets/css/themes/smooth.min.css")}} href="#">
                             <span>Smooth</span>
                             <i class="fa fa-circle text-smooth"></i>
                         </a>
+
                         <!-- END Color Themes -->
 
                         <div class="dropdown-divider"></div>
@@ -615,21 +646,9 @@ MAIN CONTENT LAYOUT
             <div class="content-side">
                 <ul class="nav-main">
                     <li class="nav-main-item">
-                        <a class="nav-main-link active" href="{{ path('aff')}}">
+                        <a class="nav-main-link active" href="be_pages_dashboardt">
                             <i class="nav-main-link-icon si si-speedometer"></i>
-                            <span class="nav-main-link-name">Transport</span>
-                        </a>
-                    </li>
-                    <li class="nav-main-item">
-                        <a class="nav-main-link active" href="{{ path('affi')}}">
-                            <i class="nav-main-link-icon si si-speedometer"></i>
-                            <span class="nav-main-link-name">Vol</span>
-                        </a>
-                    </li>
-                    <li class="nav-main-item">
-                        <a class="nav-main-link active" href="{{ path('afficherd')}}">
-                            <i class="nav-main-link-icon si si-speedometer"></i>
-                            <span class="nav-main-link-name">Detail</span>
+                            <span class="nav-main-link-name">Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-main-item">
@@ -842,25 +861,29 @@ MAIN CONTENT LAYOUT
                     <li class="nav-main-item">
                         <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
                             <i class="nav-main-link-icon si si-energy"></i>
-                            <span class="nav-main-link-name">Gestion de Transport</span>
+                            <span class="nav-main-link-name">Blocks</span>
                         </a>
                         <ul class="nav-main-submenu">
                             <li class="nav-main-item">
-                                <a class="nav-main-link" href="{{ path ('aff') }}">
-                                    <span class="nav-main-link-name">Transport</span>
+                                <a class="nav-main-link" href="be_blocks_stylest">
+                                    <span class="nav-main-link-name">Styles</span>
                                 </a>
                             </li>
                             <li class="nav-main-item">
-                                <a class="nav-main-link" href="{{ path ('affi') }}">
-                                    <span class="nav-main-link-name">Vol</span>
+                                <a class="nav-main-link" href="be_blocks_optionst">
+                                    <span class="nav-main-link-name">Options</span>
                                 </a>
                             </li>
                             <li class="nav-main-item">
-                                <a class="nav-main-link" href="{{ path ('afficherd') }}">
-                                    <span class="nav-main-link-name">Detail</span>
+                                <a class="nav-main-link" href="be_blocks_formst">
+                                    <span class="nav-main-link-name">Forms</span>
                                 </a>
                             </li>
-
+                            <li class="nav-main-item">
+                                <a class="nav-main-link" href="be_blocks_themedt">
+                                    <span class="nav-main-link-name">Themed</span>
+                                </a>
+                            </li>
                             <li class="nav-main-item">
                                 <a class="nav-main-link" href="be_blocks_apit">
                                     <span class="nav-main-link-name">API</span>
@@ -1496,16 +1519,10 @@ MAIN CONTENT LAYOUT
                 <!-- END Open Search Section -->
 
                 <!-- Search Form (visible on larger screens) -->
-                <form class="d-none d-md-inline-block" action="be_pages_generic_searcht" method="POST">
-                    <div class="input-group input-group-sm">
-                        <input type="text" class="form-control form-control-alt" placeholder="Search.." id="page-header-search-input2" name="page-header-search-input2">
-                        <div class="input-group-append">
-                                    <span class="input-group-text bg-body border-0">
-                                        <i class="fa fa-fw fa-search"></i>
-                                    </span>
-                        </div>
-                    </div>
-                </form>
+
+                {% block Recherche %}
+                {% endblock %}
+
                 <!-- END Search Form -->
             </div>
             <!-- END Left Section -->
@@ -1515,14 +1532,14 @@ MAIN CONTENT LAYOUT
                 <!-- User Dropdown -->
                 <div class="dropdown d-inline-block ml-2">
                     <button type="button" class="btn btn-sm btn-dual d-flex align-items-center" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="rounded-circle" src="assets/media/avatars/avatar10.jpg" alt="Header Avatar" style="width: 21px;">
-                        <span class="d-none d-sm-inline-block ml-2">Nourhene</span>
+                        <img class="rounded-circle" src="{{ asset('assets/media/avatars/avatar10.jpg') }}" alt="Header Avatar" style="width: 21px;">
+                        <span class="d-none d-sm-inline-block ml-2">Aero Space</span>
                         <i class="fa fa-fw fa-angle-down d-none d-sm-inline-block ml-1 mt-1"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right p-0 border-0" aria-labelledby="page-header-user-dropdown">
                         <div class="p-3 text-center bg-primary-dark rounded-top">
-                            <img class="img-avatar img-avatar48 img-avatar-thumb" src="assets/media/avatars/avatar10.jpg" alt="">
-                            <p class="mt-2 mb-0 text-white font-w500">Nourhene Maaouia</p>
+                            <img class="img-avatar img-avatar48 img-avatar-thumb" src="{{ asset('assets/media/avatars/avatar10.jpg') }}" alt="">
+                            <p class="mt-2 mb-0 text-white font-w500">Aero Space</p>
                             <p class="mb-0 text-white-50 font-size-sm">Web Developer</p>
                         </div>
                         <div class="p-2">
@@ -1683,13 +1700,14 @@ MAIN CONTENT LAYOUT
         <!-- Hero -->
         <div class="bg-body-light">
             <div class="content content-full">
+
                 <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center py-2 text-center text-sm-left">
                     <div class="flex-sm-fill">
                         <h1 class="h3 font-w700 mb-2">
                             Main Dashboard
                         </h1>
                         <h2 class="h6 font-w500 text-muted mb-0">
-                            Welcome <a class="font-w600" href="javascript:void(0)">Nourhene</a>, everything looks great.
+                            Welcome <a class="font-w600" href="javascript:void(0)">Aero Space</a>, everything looks great.
                         </h2>
                     </div>
                     <div class="mt-3 mt-sm-0 ml-sm-3">
@@ -1717,11 +1735,11 @@ MAIN CONTENT LAYOUT
         <!-- END Hero -->
 
         <!-- Page Content -->
-        <div class="content">
-            {% block stat%}
-            {% endblock %}
+        <div >
+
             {% block body %}
 
+            {% endblock %}
         </div>
         <!-- END Page Content -->
     </main>
@@ -1832,7 +1850,7 @@ MAIN CONTENT LAYOUT
     assets/js/core/jquery.appear.min.js
     assets/js/core/js.cookie.min.js
 -->
-<script src="assets/js/oneui.core.min.js"></script>
+<script src={{ asset("assets/js/oneui.core.min.js") }}></script>
 
 <!--
     OneUI JS
@@ -1845,17 +1863,39 @@ MAIN CONTENT LAYOUT
 <!-- Page JS Plugins -->
 <script src={{ asset("assets/js/plugins/jquery-sparkline/jquery.sparkline.min.js") }}></script>
 <script src={{ asset("assets/js/plugins/chart.js/Chart.bundle.min.js") }}></script>
-<script src="//code.jquery.com/jquery.js"></script>
-<script src="{{ asset('bundles/mercuryseriesflashy/js/flashy.js') }}"></script>
-{{ include('@MercurySeriesFlashy/flashy.html.twig') }}
 
 <!-- Page JS Code -->
 <script src={{ asset("assets/js/pages/be_pages_dashboard.min.js") }}></script>
 
 <!-- Page JS Helpers (jQuery Sparkline Plugins) -->
 <script>jQuery(function () { One.helpers(['sparkline']); });</script>
+
+<!-- Flashy depends on jQuery -->
+<script src="//code.jquery.com/jquery.js"></script>
+<!-- Load Flashy default JavaScript -->
+<script src="{{ asset('bundles/mercuryseriesflashy/js/flashy.js') }}"></script>
+<!-- Include Flashy default partial -->
+{{ include('@MercurySeriesFlashy/flashy.html.twig') }}
+<script src="{{ asset('assets/js/pages/be_tables_datatables.min.js') }}"></script>
+
+
+<!-- Page JS Plugins -->
+<script src="{{ asset('assets/js/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('assets/js/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('assets/js/plugins/datatables/buttons/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('assets/js/plugins/datatables/buttons/buttons.print.min.js') }}"></script>
+<script src="{{ asset('assets/js/plugins/datatables/buttons/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('assets/js/plugins/datatables/buttons/buttons.flash.min.js') }}"></script>
+<script src="{{ asset('assets/js/plugins/datatables/buttons/buttons.colVis.min.js') }}"></script>
+
+<script src="{{ asset('assets/js/plugins/jquery-bootstrap-wizard/bs4/jquery.bootstrap.wizard.min.js') }}"></script>
+<script src="{{ asset('assets/js/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('assets/js/plugins/jquery-validation/additional-methods.js') }}"></script>
+
+<!-- Page JS Code -->
+<script src="{{ asset('assets/js/pages/be_forms_wizard.min.js') }}"></script>
+<!-- Charts JS Scripts -->
+<script src="{{asset("assets/bundles/apexcharts/apexcharts.min.js")}}"></script>
+
 </body>
-{% endblock %}
-
 </html>
-

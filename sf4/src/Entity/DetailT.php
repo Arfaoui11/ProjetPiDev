@@ -23,6 +23,7 @@ class DetailT
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="la marque is required")
+
      */
     private $marque;
 

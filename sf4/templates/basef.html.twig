@@ -9,9 +9,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Travelix Project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="{{asset('../public/front/styles/style1.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('front/styles/style1.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('front/styles/A.contact_styles.css%2bcontact_responsive.css%2cMcc.NamkcxBlaS.css.pagespeed.cf.KrMOMp4fzE.css')}}" />
     <link rel="stylesheet" type="text/css" href="../public/front/styles/style1.css"/>
+    <meta charset="UTF-8">
+    <meta name ="viewport" content="width=device-width,initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css" integrity="sha256-16PDMvytZTH9heHu9KBPjzrFTaoner60bnABykjNiM0=" crossorigin="anonymous">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css" rel='stylesheet' />
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+    <link rel="stylesheet"
+          href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+          type="text/css"
+    />
+
+    <style>
+        body {
+            margin: 0;
+        }
+        #map {
+            height: 100vh;
+            width: 100vw;
+        }
+    </style>
+    <script src="{{ asset ("script.js") }}" defer ></script>
 </head>
 <body>
 <div class="super_container">
@@ -182,7 +204,12 @@
             </div>
         </div>
     </div>
+    {% block map %}
+    {% endblock %}
+
     {% block body %}
+
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js" integrity="sha256-XOMgUu4lWKSn8CFoJoBoGd9Q/OET+xrfGYSo+AKpFhE=" crossorigin="anonymous"></script>
     {% endblock %}
     <div class="travelix_map">
         <div id="google_map" class="google_map">

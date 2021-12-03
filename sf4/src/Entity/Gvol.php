@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Repository\VolRepository;
 /**
  * Gvol
  *
@@ -25,7 +26,12 @@ class Gvol
      * @var string
      *
      * @ORM\Column(name="nomv", type="string", length=255, nullable=false)
-     * @Assert\NotBlank(message="the name is required")
+     * @Assert\Length(
+     *      min = 4,
+     *      max = 20,
+     *      minMessage = "The full name must be at least {{ limit }} characters long",
+     *      maxMessage = "The full name cannot be longer than {{ limit }} characters",
+     *      allowEmptyString = false)
      */
     private $nomv;
 
@@ -48,6 +54,8 @@ class Gvol
      *
      * @ORM\Column(name="depart", type="string", length=255, nullable=false)
      * @Assert\NotBlank(message="le nom de ville de depart is required")
+
+     *
      */
     private $depart;
 
@@ -56,6 +64,12 @@ class Gvol
      *
      * @ORM\Column(name="arriver", type="string", length=255, nullable=false)
      * @Assert\NotBlank(message="le nom de ville d'arriver is required")
+     *@Assert\Length(
+     *      min = 2,
+     *      max = 5,
+     *      minMessage = "Your id must be at least {{ limit }} characters long",
+     *      maxMessage = "Your id cannot be longer than {{ limit }} characters"
+     * )
 
      */
     private $arriver;
@@ -64,6 +78,12 @@ class Gvol
      * @var string
      *
      * @ORM\Column(name="chauffeur", type="string", length=255, nullable=false)
+     * *@Assert\Length(
+     *      min = 2,
+     *      max = 10,
+     *      minMessage = "Your id must be at least {{ limit }} characters long",
+     *      maxMessage = "Your id cannot be longer than {{ limit }} characters"
+     * )
      */
     private $chauffeur;
 

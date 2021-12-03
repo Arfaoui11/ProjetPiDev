@@ -11,41 +11,67 @@
 </head>
 {% block body %}
 <body>
+{% for message in app.flashes('info') %}
+    <div class="alert alert-success">{{ message }}</div>
+{% endfor %}
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <form method="post" action="{{ path('recherchev') }}">
     <label>Search</label>
     <input type="text" name="search"><input type="submit" value="Recherche">
 </form>
-<table border=""  class="table table-striped custom-table">
-    <tr>
-        <th>numv</th>
-        <th>nomv</th>
-        <th>dated</th>
-        <th>datea</th>
-        <th>depart</th>
-        <th>arriver</th>
-        <th>chauffeur</th>
 
-    </tr>
-    <tr {%  for c in vol %}>
-        <td>{{c.numv}}</td>
-        <td>{{ c.nomv }}</td>
-        <td>{{ c.dated|date('Y-m-d') }}</td>
-        <td>{{ c.datea|date('Y-m-d') }}</td>
-        <td>{{ c.depart }}</td>
-        <td>{{ c.arriver }}</td>
-        <td>{{ c.chauffeur }}</td>
+<div class="block-content block-content-full">
+    <!-- DataTables init on table by adding .js-dataTable-full class, functionality is initialized in js/pages/be_tables_datatables.min.js which was auto compiled from _es6/pages/be_tables_datatables.js -->
+    <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
+        <thead>
+        <tr>
+            <th class="text-center" style="width: 80px;">ID</th>
+            <th class="d-none d-sm-table-cell" style="width: 15%;">Nom du Vol</th>
+            <th class="d-none d-sm-table-cell" style="width: 20%;" >Date de Départ</th>
+            <th class="d-none d-sm-table-cell" style="width: 15%;">Date d'arriver</th>
+            <th class="d-none d-sm-table-cell" style="width: 15%;">Départ</th>
+            <th class="d-none d-sm-table-cell" style="width: 15%;">Arriver</th>
+            <th class="d-none d-sm-table-cell" style="width: 15%;">Chauffeur</th>
+            <th class="d-none d-sm-table-cell" style="width: 15%;">Modifier </th>
+            <th class="d-none d-sm-table-cell" style="width: 15%;">Supprimer</th>
+        </tr>
+        </thead>
+        <tbody{%  for c in vol %}>
+        <tr>
+            <td class="text-center font-size-sm">{{c.numv}}</td>
+            <td class="d-none d-sm-table-cell">
+                <p class="badge badge-success">{{c.nomv}}</p>
+            </td>
+            <td class="font-w600 font-size-sm">
+                <em class="text-muted">{{ c.dated |date('d-m-Y')}}</em>
+            </td>
+            <td class="d-none d-sm-table-cell font-size-sm" >
+                 <em class="text-muted">{{ c.datea |date('d-m-Y')}}</em>
+            </td>
+            <td>
+                <em class="text-muted font-size-sm">{{ c.depart }}</em>
+            </td>
+            <td>
+                <em class="text-muted font-size-sm">{{ c.arriver }}</em>
+            </td>
+            <td>
+                <em class="text-muted font-size-sm">{{ c.chauffeur }}</em>
+            </td>
 
-        <td>
-            <a href=" {{ path('updatev',{'id':c.numv}) }}" class="edit" ><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+            <td><a class="badge badge-danger" href=" {{ path('updatev',{'id':c.numv}) }}" class="nav-link">Update</a></td>
+            <td><a class="badge badge-info" href=" {{ path('d1',{'id':c.numv}) }}" class="nav-link">Delete</a></td>
 
-            <a href=" {{ path('d1',{'id':c.numv}) }}" class="delete" ><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-        </td>
+        </tr>
+        </tbody {% endfor %}>
+    </table>
+</div>
 
-    </tr{% endfor %} >
-</table>
     <form method="post" action="{{ path('ajoutvol') }}">
     <input class="btn btn-success" type="submit" value="Ajouter">
+    </form>
+
+    <form method="post" action="{{ path('imprimer_index') }}">
+        <input class="btn btn-success" type="submit" value="PDF">
     </form>
 
 
