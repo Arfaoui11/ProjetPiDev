@@ -17,11 +17,13 @@ security:
         main:
             anonymous: lazy
             provider: app_user_provider
+            access_denied_handler: App\Security\AccessDeniedHandler
             guard:
                 authenticators:
-                    - App\Security\UserAuthenticator
+                    - App\Security\AuthAuthenticator
             logout:
                 path: app_logout
+                target : /login
                 # where to redirect after logout
                 # target: app_any_route
 
@@ -34,5 +36,34 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+
+         - { path: ^/user, roles: ROLE_ADMIN }
+         - { path: ^/FactureAff, roles: ROLE_USER1  } #aymen
+         - { path: ^/EquipementAff, roles: ROLE_USER1 }
+         - { path: ^/BanqueAffB, roles: ROLE_USER1 }
+         - { path: ^/hotelafficherHotel, roles: ROLE_USER2 } #bedis
+         - { path: ^/AddLieu, roles: ROLE_USER2 }
+         - { path: ^/events/omar/back, roles: ROLE_USER3 } #omar
+         - { path: ^/offres/AfficheOffre, roles: ROLE_USER4 } #chaima
+         - { path: ^/reservation/panier/, roles: ROLE_USER5 } #mehdi
+         - { path: ^/transportaff, roles: ROLE_USER6 } #nourhene
+         - { path: ^/gvolaffi, roles: ROLE_USER6 }
+         - { path: ^/afficherd, roles: ROLE_USER6 }
+         - { path: ^/afficher, roles: ROLE_USER2 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
